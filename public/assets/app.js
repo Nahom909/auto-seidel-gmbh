@@ -21,43 +21,15 @@
   }), { rootMargin: "0px 0px -8% 0px" });
   document.querySelectorAll(".rv").forEach((el) => io.observe(el));
 
-  // Google-Wert hochzählen
-  const counter = document.querySelector("[data-count]");
-  if (counter && !reduce) {
-    const target = parseFloat(counter.dataset.count);
-    counter.firstChild.nodeValue = "0,0";
-    new IntersectionObserver(([e], obs) => {
-      if (!e.isIntersecting) return;
-      obs.disconnect();
-      const t0 = performance.now();
-      const tick = (now) => {
-        const t = Math.min(1, (now - t0) / 1400), v = target * (1 - Math.pow(1 - t, 3));
-        counter.firstChild.nodeValue = v.toFixed(1).replace(".", ",");
-        if (t < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    }).observe(counter);
-  }
-
-  /* ---------- Rezensionen: Laufband verdoppeln ---------- */
-  const marquee = document.getElementById("marquee");
-  if (marquee) [...marquee.children].forEach((c) => {
-    const d = c.cloneNode(true);
-    d.classList.add("dup");
-    d.setAttribute("aria-hidden", "true");
-    marquee.appendChild(d);
-  });
-
   /* ---------- Öffnungszeiten: heute + offen/geschlossen ---------- */
   const SLOTS = { 1: [8, 18], 2: [8, 18], 3: [8, 18], 4: [8, 18], 5: [8, 18], 6: [9, 13] };
   const now = new Date(), day = now.getDay(), h = now.getHours() + now.getMinutes() / 60;
   document.querySelector(`#hours tr[data-day="${day}"]`)?.classList.add("today");
-  const status = document.getElementById("status");
-  if (status) {
-    const s = SLOTS[day], open = s && h >= s[0] && h < s[1];
-    status.classList.add(open ? "open" : "closed");
-    status.querySelector("b").textContent = open ? `Jetzt geöffnet, bis ${String(s[1]).padStart(2, "0")}:00 Uhr` : "Gerade geschlossen";
-  }
+  const slot = SLOTS[day], open = slot && h >= slot[0] && h < slot[1];
+  document.querySelectorAll("[data-status]").forEach((el) => {
+    el.classList.add(open ? "open" : "closed");
+    el.querySelector("b").textContent = open ? `Jetzt geöffnet, bis ${String(slot[1]).padStart(2, "0")}:00 Uhr` : "Gerade geschlossen";
+  });
   document.getElementById("year").textContent = now.getFullYear();
 
   /* ---------- Fahrzeug anfragen → Formular vorbereiten ---------- */
@@ -211,12 +183,19 @@
   const hideHint = () => { hint.classList.remove("show"); try { sessionStorage.setItem("botHint", "1"); } catch {} };
   let seen = false;
   try { seen = sessionStorage.getItem("botHint") === "1"; } catch {}
-  // Begrüßung kurz zeigen und von selbst wieder ausblenden, damit sie nichts verdeckt
-  if (!seen) setTimeout(() => {
-    if (body.classList.contains("chat-open")) return;
-    hint.classList.add("show");
-    setTimeout(() => hint.classList.remove("show"), innerWidth < 600 ? 7000 : 12000);
-  }, 2500);
+  // Begrüßung kurz zeigen und von selbst wieder ausblenden
+  // erst zeigen, wenn der Hero weitgehend verlassen ist, damit die Blase dort keine Knöpfe verdeckt
+  let shown = false;
+  if (!seen) new IntersectionObserver(([e]) => {
+    if (e.intersectionRatio > 0.4) { hint.classList.remove("show"); return; }
+    if (shown) return;
+    shown = true;
+    setTimeout(() => {
+      if (body.classList.contains("chat-open")) return;
+      hint.classList.add("show");
+      setTimeout(() => hint.classList.remove("show"), innerWidth < 600 ? 7000 : 12000);
+    }, 1200);
+  }, { threshold: [0, 0.4, 1] }).observe(document.querySelector(".hero"));
   document.getElementById("botHintX").addEventListener("click", (e) => { e.stopPropagation(); hideHint(); });
   hint.addEventListener("click", () => { hideHint(); toggle(true); });
   fab.addEventListener("click", () => { hideHint(); toggle(true); });

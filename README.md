@@ -32,5 +32,4 @@ Dann http://localhost:8803 öffnen. Ohne `ANTHROPIC_API_KEY` antwortet der Assis
 - E-Mail-Adresse des Betriebs unbekannt.
 - Samstag 09:00 bis 13:00 laut Google, bitte beim Betrieb bestätigen.
 - Fahrzeuge im Abschnitt „Fahrzeughandel“ sind Beispiele mit Beispielpreisen.
-- Rezensionstexte sind Platzhalter; der Betrieb wählt eigene Google-Rezensionen aus (4,7 ★ aus 81).
 - Beispielbilder (Unsplash) gegen eigene Fotos tauschen, sobald vorhanden. Quellen in `BILDQUELLEN.md`.

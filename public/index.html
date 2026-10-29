@@ -8,9 +8,10 @@
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Auto Seidel – Kfz-Meisterbetrieb in Bermsgrün">
 <meta property="og:description" content="Inspektion, Reifen, Karosserie, TÜV und Fahrzeughandel. Seit 1991 in Schwarzenberg.">
-<meta property="og:image" content="assets/img/werkstatt-seidel.webp">
+<meta property="og:image" content="assets/img/werkstatt-seidel-hero.webp">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/Schibsted-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/werkstatt-seidel-hero.webp" as="image">
 <link rel="stylesheet" href="assets/vendor/phosphor/light.css">
 <link rel="stylesheet" href="assets/vendor/phosphor/fill.css">
 <link rel="stylesheet" href="assets/style.css">
@@ -34,7 +35,7 @@
 </head>
 <body>
 
-<header class="nav" id="nav">
+<header class="nav on-photo" id="nav">
   <div class="wrap">
     <a class="brand" href="#start" aria-label="Auto Seidel, zum Seitenanfang">
       <b>Auto-<span class="s-mark">S</span>eidel</b>
@@ -54,21 +55,27 @@
 </header>
 
 <main>
-  <!-- Hero: echtes Werkstattfoto -->
+  <!-- Hero: echtes Werkstattfoto randlos, Text darauf, Infokarte rechts -->
   <section class="hero" id="start">
-    <div class="wrap hero-grid">
+    <img class="hero-bg" src="assets/img/werkstatt-seidel-hero.webp" alt="Zwei Mechaniker von Auto Seidel arbeiten an einem Auto auf der Hebebühne" width="2600" height="2600" fetchpriority="high">
+    <div class="wrap hero-inner">
       <div class="hero-copy">
-        <span class="kicker">Kfz-Meisterbetrieb in Schwarzenberg-Bermsgrün</span>
+        <span class="kicker">Kfz-Meisterbetrieb seit 1991</span>
         <h1>Ihre Werkstatt im Erzgebirge.</h1>
-        <p>Inspektion, Reifen, Karosserie, TÜV und Fahrzeughandel für alle Marken. Seit 1991.</p>
+        <p>Inspektion, Reifen, Karosserie, TÜV und Fahrzeughandel für alle Marken.</p>
         <div class="hero-actions">
-          <a class="btn btn-main" href="#kontakt">Termin anfragen <i class="ph-light ph-arrow-right"></i></a>
-          <a class="btn btn-ghost" href="tel:+49377424400"><i class="ph-light ph-phone"></i>03774 24400</a>
+          <a class="btn btn-light" href="#kontakt">Termin anfragen <i class="ph-light ph-arrow-right"></i></a>
+          <a class="btn btn-line" href="tel:+49377424400"><i class="ph-light ph-phone"></i>03774 24400</a>
         </div>
       </div>
-      <figure class="hero-photo">
-        <img src="assets/img/werkstatt-seidel.webp" alt="Zwei Mechaniker von Auto Seidel arbeiten an einem Auto auf der Hebebühne" width="2000" height="2000" fetchpriority="high">
-      </figure>
+      <aside class="hero-card" aria-label="Auf einen Blick">
+        <span class="status" data-status><i></i><b>Öffnungszeiten</b></span>
+        <ul>
+          <li><i class="ph-light ph-map-pin"></i><span>Gemeindestraße 23<br>Schwarzenberg-Bermsgrün</span></li>
+          <li><i class="ph-light ph-seal-check"></i><span>TÜV und Dekra zweimal pro Woche im Haus</span></li>
+          <li><i class="ph-light ph-clock"></i><span>Mo bis Fr 08:00 bis 18:00<br>Sa 09:00 bis 13:00</span></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
@@ -76,7 +83,6 @@
   <section class="facts" aria-label="Kurz zusammengefasst">
     <div class="wrap facts-grid">
       <div class="fact rv"><b>1991</b><span>gegründet von Kfz-Meister Detlef Seidel</span></div>
-      <div class="fact rv"><b data-count="4.7">4,7<i class="ph-fill ph-star"></i></b><span>bei Google aus 81 Rezensionen</span></div>
       <div class="fact rv"><b>2&times;</b><span>pro Woche TÜV und Dekra im Haus</span></div>
       <div class="fact rv"><b>Alle</b><span>Marken und Typen, vom Ölwechsel bis zum Unfallschaden</span></div>
     </div>
@@ -194,22 +200,6 @@
     </div>
   </section>
 
-  <!-- Rezensionen -->
-  <section class="section reviews" aria-labelledby="rev-h" style="padding-top:clamp(40px,6vw,80px)">
-    <div class="wrap reviews-head rv">
-      <h2 class="h2" id="rev-h">Rezensionen.</h2>
-      <div class="reviews-score"><div class="stars" aria-hidden="true"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>4,7 von 5 bei Google, 81 Rezensionen</div>
-    </div>
-    <div class="marquee" id="marquee">
-      <article class="review"><div class="stars" aria-label="5 von 5 Sternen"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div><p>Platzhalter</p><footer><span class="av">P</span><span>Platzhalter<small>Google-Rezension</small></span></footer></article>
-      <article class="review"><div class="stars" aria-label="5 von 5 Sternen"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div><p>Platzhalter</p><footer><span class="av">P</span><span>Platzhalter<small>Google-Rezension</small></span></footer></article>
-      <article class="review"><div class="stars" aria-label="5 von 5 Sternen"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div><p>Platzhalter</p><footer><span class="av">P</span><span>Platzhalter<small>Google-Rezension</small></span></footer></article>
-      <article class="review"><div class="stars" aria-label="5 von 5 Sternen"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div><p>Platzhalter</p><footer><span class="av">P</span><span>Platzhalter<small>Google-Rezension</small></span></footer></article>
-      <article class="review"><div class="stars" aria-label="5 von 5 Sternen"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div><p>Platzhalter</p><footer><span class="av">P</span><span>Platzhalter<small>Google-Rezension</small></span></footer></article>
-      <article class="review"><div class="stars" aria-label="5 von 5 Sternen"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div><p>Platzhalter</p><footer><span class="av">P</span><span>Platzhalter<small>Google-Rezension</small></span></footer></article>
-    </div>
-  </section>
-
   <!-- Region -->
   <section class="region" aria-label="Erzgebirge">
     <img src="assets/img/erzgebirge.webp" alt="Nebelige Hochebene im Erzgebirge mit Fichten" loading="lazy" width="2200" height="1467" id="regionImg">
@@ -226,7 +216,7 @@
       <div class="contact">
         <div class="rv">
           <div class="info-card">
-            <span class="status" id="status"><i></i><b>Öffnungszeiten</b></span>
+            <span class="status" data-status><i></i><b>Öffnungszeiten</b></span>
             <table class="hours" id="hours">
               <tr data-day="1"><td>Montag</td><td>08:00 bis 18:00</td></tr>
               <tr data-day="2"><td>Dienstag</td><td>08:00 bis 18:00</td></tr>

@@ -3,7 +3,7 @@
 ## Eigene Fotos des Betriebs
 | Datei | Quelle |
 |---|---|
-| `werkstatt-seidel.webp` | Google-Unternehmensprofil „Auto Seidel GmbH + Co. KG“ |
+| `werkstatt-seidel-hero.webp` | Google-Unternehmensprofil „Auto Seidel GmbH + Co. KG“ |
 | `hof-bermsgruen.webp` | Alte Website auto-seidel.de (Webarchiv, `neu/templates/img/hof_werkstatt.jpg`) |
 
 ## Beispielbilder (Unsplash, nur für die Vorschau)
