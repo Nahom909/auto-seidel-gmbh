@@ -1,0 +1,11 @@
+{
+  "name": "auto-seidel",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-server.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.70.0"
+  }
+}
